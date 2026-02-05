@@ -1,5 +1,6 @@
 /* prettier-ignore-file */
 import { useCustomThemeStore } from '../store/useCustomThemeStore';
+import { getWallpaperById } from './wallpapers';
 import usePreferencesStore from '../store/usePreferencesStore';
 import {
   Atom,
@@ -1620,7 +1621,6 @@ export function applyTheme(themeId: string) {
   // Apply wallpaper if theme has one
   const wallpaperId = getThemeDefaultWallpaperId(resolvedThemeId);
   if (wallpaperId) {
-    const { getWallpaperById, CURATED_WALLPAPERS } = require('./wallpapers');
     const customWallpapers = usePreferencesStore.getState().customWallpapers;
     const wallpaper = getWallpaperById(wallpaperId, customWallpapers);
 
